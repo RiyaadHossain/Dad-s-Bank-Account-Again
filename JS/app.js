@@ -16,10 +16,10 @@ function sub_Display(display, input) {
 function add_Balance(sub_Dis, isPositive) {
   if (isPositive == true) {
     balance_Display.innerText =
-      parseFloat(sub_Dis) + parseFloat(balance_Display.innerText);
+      parseFloat(sub_Dis.value) + parseFloat(balance_Display.innerText);
   } else {
     balance_Display.innerText =
-      parseFloat(balance_Display.innerText) - parseFloat(sub_Dis);
+      parseFloat(balance_Display.innerText) - parseFloat(sub_Dis.value);
   }
 
   // return balance_Display.innerText;
@@ -34,7 +34,7 @@ document.getElementById("deposit-btn").addEventListener("click", () => {
     const display_sub = sub_Display(deposit_Display, deposit_Input);
 
     // Add --- Balance Display
-    add_Balance(display_sub, true);
+    add_Balance(deposit_Input, true);
   } else {
     alert("Please Input a valid Amount. Thank You :)");
   }
@@ -49,7 +49,7 @@ document.getElementById("withdraw-btn").addEventListener("click", () => {
     const display_sub = sub_Display(withdraw_Display, withdraw_Input);
 
     // Add --- Balance Display
-    add_Balance(display_sub, false);
+    add_Balance(withdraw_Input, false);
   } else {
     alert("Please Input a valid Amount. Thank You :)");
   }
